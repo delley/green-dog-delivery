@@ -27,7 +27,7 @@ public class Cliente {
 	private String nome;
 
 	@NotNull
-	@Length(min = 2, max = 30, message = "O tamanho do endereço deve ser entre {min} e {max} caracteres")
+	@Length(min = 2, max = 300, message = "O tamanho do endereço deve ser entre {min} e {max} caracteres")
 	private String endereco;
 
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)

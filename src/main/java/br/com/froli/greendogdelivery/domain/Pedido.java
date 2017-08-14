@@ -52,6 +52,14 @@ public class Pedido {
 		this.id = id;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public List<Item> getItens() {
 		return itens;
 	}
