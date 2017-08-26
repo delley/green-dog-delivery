@@ -1,4 +1,4 @@
-package br.com.froli;
+package br.com.froli.greendogdelivery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
