@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.froli.greendogdelivery.domain.Cliente;
 import br.com.froli.greendogdelivery.domain.Item;
@@ -16,6 +17,7 @@ import br.com.froli.greendogdelivery.dto.RespostaDTO;
 import br.com.froli.greendogdelivery.repository.ClienteRepository;
 import br.com.froli.greendogdelivery.repository.ItemRepository;
 
+@RestController
 public class NovoPedidoController {
 
 	private final ClienteRepository clienteRepository;
