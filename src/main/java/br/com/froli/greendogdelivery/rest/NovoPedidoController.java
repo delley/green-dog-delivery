@@ -14,6 +14,7 @@ import br.com.froli.greendogdelivery.domain.Cliente;
 import br.com.froli.greendogdelivery.domain.Item;
 import br.com.froli.greendogdelivery.domain.Pedido;
 import br.com.froli.greendogdelivery.dto.RespostaDTO;
+import br.com.froli.greendogdelivery.notification.EnviaNotificacao;
 import br.com.froli.greendogdelivery.repository.ClienteRepository;
 import br.com.froli.greendogdelivery.repository.ItemRepository;
 
@@ -22,11 +23,13 @@ public class NovoPedidoController {
 
 	private final ClienteRepository clienteRepository;
 	private final ItemRepository itemRepository;
+	private final EnviaNotificacao enviaNotificacao;
 
 	@Autowired
-	public NovoPedidoController(ClienteRepository clienteRepository, ItemRepository itemRepository) {
+	public NovoPedidoController(ClienteRepository clienteRepository, ItemRepository itemRepository, EnviaNotificacao enviaNotificacao) {
 		this.clienteRepository = clienteRepository;
 		this.itemRepository = itemRepository;
+		this.enviaNotificacao = enviaNotificacao;
 	}
 	
 	@GetMapping("/rest/pedido/novo/{clienteId}/{listaDeItens}")
@@ -55,6 +58,7 @@ public class NovoPedidoController {
 			c.getPedidos().add(pedido);
 
 			this.clienteRepository.saveAndFlush(c);
+			enviaNotificacao.enviaEmail(c, pedido);
 			
 			List<Long> pedidosID = new ArrayList<Long>();
 			for (Pedido p : c.getPedidos()) {
