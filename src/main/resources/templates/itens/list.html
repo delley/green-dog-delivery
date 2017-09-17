@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
 <head>
-<title>Itens</title>
+	<title>Itens</title>
 </head>
+
 <body>
 	<h1 layout:fragment="header">Lista de itens</h1>
 	<div layout:fragment="content">
 		<a href="form.html" th:href="@{/itens/novo}">Novo item</a>
-		<div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">mensagem</div>			
+		<div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">mensagem</div>
 		<table class="table table-striped">
-			<thead> 
+			<thead>
 				<tr>
 					<td>ID</td>
 					<td>Nome</td>
@@ -29,4 +29,5 @@
 		</table>
 	</div>
 </body>
+
 </html>

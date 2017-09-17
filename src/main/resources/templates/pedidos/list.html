@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
 <head>
-<title>pedidos</title>
+	<title>pedidos</title>
 </head>
+
 <body>
 	<h1 layout:fragment="header">Lista de pedidos</h1>
 	<div layout:fragment="content">
 		<a href="form.html" th:href="@{/pedidos/novo}">Novo pedido</a>
-		<div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">mensagem</div>			
+		<div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">mensagem</div>
 		<table class="table table-striped">
-			<thead> 
+			<thead>
 				<tr>
 					<td>ID</td>
 					<td>Cliente</td>
@@ -25,7 +25,7 @@
 				</tr>
 				<tr th:each="pedido : ${pedidos}">
 					<td th:text="${pedido.id}">1</td>
-					<td><a href="view.html" th:href="@{'/pedidos/' + ${pedido.id}}"   th:text="${pedido.cliente != null} ? ${pedido.cliente.nome}"> nome </a></td>
+					<td><a href="view.html" th:href="@{'/pedidos/' + ${pedido.id}}" th:text="${pedido.cliente != null} ? ${pedido.cliente.nome}"> nome </a></td>
 					<td th:text="${#dates.format(pedido.data,'dd-MM-yyyy')}">data</td>
 					<td th:text="${pedido.valorTotal}">1</td>
 				</tr>
@@ -33,4 +33,5 @@
 		</table>
 	</div>
 </body>
+
 </html>

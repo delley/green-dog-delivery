@@ -1,14 +1,13 @@
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
 <head>
- <title>Pedido</title>
+	<title>Pedido</title>
 </head>
+
 <body>
 	<h1 layout:fragment="header">Pedido</h1>
 	<div layout:fragment="content" class="well">
-		<div class="alert alert-success" th:if="${globalMessage}"
-			th:text="${globalMessage}">pedido gravado com sucesso</div>
+		<div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">pedido gravado com sucesso</div>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -26,17 +25,18 @@
 					<td id="data" th:text="${pedido.data}">Preco...</td>
 					<td id="valorTotal" th:text="${pedido.valorTotal}">Valor total...</td>
 					<td id="itens">
-						<div th:each="item : ${pedido.itens}"><div th:text="${item.nome}">nome</div></div>
+						<div th:each="item : ${pedido.itens}">
+							<div th:text="${item.nome}">nome</div>
+						</div>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 		<div>
-			<a href="form.html" th:href="@{'/pedidos/alterar/' + ${pedido.id}}">alterar</a>
-			| <a href="pedidos" th:href="@{'/pedidos/remover/' + ${pedido.id}}">remover</a>
-			| <a href="pedidos" th:href="@{'/pedidos/novo/'}">novo pedido</a>
-		    | <a th:href="@{/pedidos/}" href="list.html">voltar</a>
+			<a href="form.html" th:href="@{'/pedidos/alterar/' + ${pedido.id}}">alterar</a> | <a href="pedidos" th:href="@{'/pedidos/remover/' + ${pedido.id}}">remover</a> | <a href="pedidos" th:href="@{'/pedidos/novo/'}">novo pedido</a> | <a th:href="@{/pedidos/}"
+			  href="list.html">voltar</a>
 		</div>
 	</div>
 </body>
+
 </html>

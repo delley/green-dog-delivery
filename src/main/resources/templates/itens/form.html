@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
-	layout:decorate="layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
 <head>
-<title>Item</title>
+	<title>Item</title>
 </head>
+
 <body>
 	<h1 layout:fragment="header">Cadastro de item</h1>
 	<div layout:fragment="content" class="input-form">
-	
+
 		<div class="well">
 			<form id="itemForm" th:action="@{/itens/(form)}" th:object="${item}" action="#" method="post" class="form-horizontal">
 				<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
@@ -40,4 +40,5 @@
 		</div>
 	</div>
 </body>
+
 </html>

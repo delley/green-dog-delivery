@@ -1,5 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" ng-app="delivery">
+
 <head>
   <title>Green Dog Delivery</title>
   <!-- Bootstrap -->
@@ -22,6 +23,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <nav class="navbar navbar-default navbar-static-top">
@@ -53,11 +55,11 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form-group">
             <label class="col-md-12" for="btnSubmit">Subtotal: R${{subTotal}}</label>
           </div>
-          
+
           <div class="form-group">
             <div class="col-md-12">
               <button id="btnSubmit" name="btnSubmit" ng-click="fazerPedido(pedidoItens)" class="btn btn-primary">Fazer o pedido</button>
@@ -72,4 +74,5 @@
     </div>
   </div>
 </body>
+
 </html>
