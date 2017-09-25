@@ -12,7 +12,7 @@ app.controller('pedidoController',
     $scope.itens = [];
     $scope.clientes = [];
     $scope.pedido = {
-      cliente: {},
+      cliente: null,
       itens: [],
       subTotal: 0
     };
@@ -61,9 +61,9 @@ app.controller('pedidoController',
     };
     $scope.isItemSelecionado = function() {
       if (this.checked)
-        $scope.pedido.subTotal += this.iten.preco;
+        $scope.pedido.subTotal += this.item.preco;
       else
-        $scope.pedido.subTotal -= this.iten.preco;
+        $scope.pedido.subTotal -= this.item.preco;
     }
     carregarClientes();
     carregarItens();

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import br.com.froli.greendogdelivery.domain.Cliente;
@@ -14,6 +15,7 @@ import br.com.froli.greendogdelivery.domain.Pedido;
 import br.com.froli.greendogdelivery.repository.ClienteRepository;
 
 @Component
+@Profile("DEV")
 public class RepositoryTest implements ApplicationRunner {
 
 	private static final long ID_CLIENTE_FERNANDO = 11l;

@@ -38,38 +38,41 @@
       </ul>
     </nav>
     <div ng-controller="pedidoController">
-      <form class="form-horizontal">
+      <form name="pedidoForm" class="form-horizontal">
         <fieldset>
           <legend>Delivery - Novo Pedido</legend>
           <div class="form-group">
             <div class="col-md-12">
-              <select name="cliente" class="form-control" ng-model="pedido.cliente" ng-options="cliente.nome for cliente in clientes" ng-required="true">
+              <select name="pedido.cliente" class="form-control" ng-model="pedido.cliente" ng-options="cliente.nome for cliente in clientes" ng-required="true">
                 <option value="">Selecione um cliente</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-12" for="checkboxes">
+            <label class="col-md-12">
               <img alt="" src="../img/hotdog.svg" style="width: 50px; margin: -12px 0px;" />Cardápio:
             </label>
 
             <div class="col-md-12">
               <div class="checkbox checkbox-primary" ng-repeat="item in itens">
-                <label for="checkboxes-0" class="opcao">
-                  <input ng-required="subTotal == 0" name="checkboxes" checklist-model="pedido.itens" checklist-value="item" ng-click="isItemSelecionado(item)" type="checkbox"> &nbsp;{{item.nome}} [R${{item.preco}}]
+                <label class="opcao">
+                  <input name="pedido.itens" checklist-model="pedido.itens"
+                    checklist-change="pedidoForm.pedido.itens.$setValidity('required', pedido.itens.length > 0)"
+                    checklist-value="item" ng-click="isItemSelecionado(item)"
+                    type="checkbox"> &nbsp;{{item.nome}} [R${{item.preco}}]
                 </label>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-12" for="btnSubmit">Subtotal: R$ {{subTotal}}</label>
+            <label class="col-md-12" for="btnSubmit">Subtotal: R$ {{ pedido.subTotal }}</label>
           </div>
-
+          
           <div class="form-group">
             <div class="col-md-12">
-              <button id="btnSubmit" name="btnSubmit" ng-click="fazerPedido(pedido)" ng-disabled="pedidoForm.$invalid" class="btn btn-primary">Fazer o pedido</button>
+              <button id="btnSubmit" name="btnSubmit" ng-click="fazerPedido(pedido)" ng-disabled="!((pedidoForm.$valid) && (pedido.itens.length > 0))" class="btn btn-primary">Fazer o pedido</button>
             </div>
           </div>
         </fieldset>
